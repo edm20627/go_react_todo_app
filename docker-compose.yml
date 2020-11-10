@@ -20,6 +20,8 @@ services:
       - ./api:/go/src/app
     ports:
       - 8080:8080
+    depends_on:
+      - mysql
   nginx:
     image: nginx
     ports:
@@ -41,8 +43,6 @@ services:
       - mysql-data:/var/lib/mysql
     ports:
       - 3306:3306
-    links:
-      - api
 volumes:
   mysql-data:
     driver: local
