@@ -20,8 +20,9 @@ services:
       - ./api:/go/src/app
     ports:
       - 8080:8080
-    depends_on:
-      - mysql
+    # TODO: 先にnginxが起動するためapiで名前解決できない
+    # depends_on:
+    #   - mysql
   nginx:
     image: nginx
     ports:
